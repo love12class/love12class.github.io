@@ -1,0 +1,80 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery屏幕右下角留言弹幕代码 - 站长素材</title>
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+
+<link rel="stylesheet" type="text/css" href="css/index.css">
+<link rel="stylesheet" type="text/css" href="css/total.css">
+<style type="text/css">
+	body{font-family:"Super Tahoma"}
+</style>
+
+<body>
+<div>
+<input type="button" value="test" onClick="bar()" class="button_ita" /> 
+<form action="" method="post" id="f2"> 
+<input type="text" name="name" placeholder="输入内容" class="txt large" id="txtbar" /> 
+<input type="button" class="button_ita" value="发送" onClick="pub()" /> 
+</form> 
+<div id="Barrage"> 
+<ul> 
+<li>
+<div class="BarMes">
+但愿人长久，千里共嫦娟
+</div></li> 
+</ul> 
+</div> 
+</div>
+</body>
+<script src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/data.js"></script>
+<script type="text/javascript">
+ function pub() {
+    var str = $("#txtbar").val();
+    /* $("ul").append("<li><div class='BarMes'>"+str+"</div></li>"); */
+    if (str == "") {
+        alert("输入内容");
+    } else {
+                    alert("发布成功");
+                $("ul").append("<li><div class='BarMes'>" + str + "</div></li>");
+/*         $.ajax({
+            url: "http://localhost/Ehcache/insert",
+            type: "post",
+            data: $("#f2").serialize(),
+            async: false,
+            success: function(st) {
+
+            }
+        }); */
+    }
+}
+setInterval(function() {
+    bar();
+},
+2000);
+var a = $(".BarMes").size();
+function bar() {
+    $("ul li:eq(0)").animate({
+        "margin-top": "-42px"
+    },
+    "slow");
+    setTimeout(function() {
+        $("ul li:eq(0)").remove();
+    },
+    1000);
+    if ($("li").size() <= 8) {
+        add(); //玩完了再去去一下
+    }
+   // console.log($("li").size());
+}
+
+</script>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器。</p>
+<p>来源：<a href="http://sc.chinaz.com/" target="_blank">站长素材</a></p>
+</div>
+</html>
