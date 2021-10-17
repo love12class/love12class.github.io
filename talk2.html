@@ -92,21 +92,7 @@ var Storage =
 	  }
 	  document.getElementById("comment").innerHTML = dataHtml;
   },
-  clearData:function()//清空数据
-  {
-	  if(localStorage.length > 0)
-	  {
-		  if(window.confirm("清空后不可恢复，是否确认清空？"))
-		  {
-			  localStorage.clear();
-			  this.writeData();
-		  }
-	  }
-	  else
-	 {
-		 alert("没有需要清空的数据！");
-	  }
-  },
+  
   getDateTime:function()//获取日期时间，例如 2012-03-08 12:58:58
   {
 	  var isZero = function(num)//私有方法，自动补零
@@ -158,8 +144,7 @@ window.onload = function()
 </div>
   
 <div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
-<p>适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器。</p>
-<p>来源：<a href="http://sc.chinaz.com/" target="_blank">站长素材</a></p>
+
 </div>
 </body>
 </html>
